@@ -1,0 +1,45 @@
+--  COUNT, DISTINCT, LIMIT
+
+SELECT * FROM FilmLocations;
+COUNT(*)
+SELECT COUNT(*) FROM FilmLocations WHERE Writer="James Cameron";
+
+Title	ReleaseYear	Locations	FunFacts	ProductionCompany	Distributor	Director	Writer	Actor1	Actor2	Actor3
+WHERE Locations="Woody Allen";
+SELECT COUNT(DISTINCT ReleaseYear) FROM FilmLocations WHERE ProductionCompany="Warner Bros. Pictures";
+SELECT DISTINCT Title, ReleaseYear FROM FilmLocations WHERE ReleaseYear>=2001;
+SELECT DISTINCT Title, Director FROM FilmLocations WHERE Locations="City Hall";
+SELECT COUNT(DISTINCT Distributor) FROM FilmLocations WHERE Actor1="Clint Eastwood";
+SELECT DISTINCT Title FROM FilmLocations WHERE ReleaseYear=2015 LIMIT 3 OFFSET 5;
+
+--  INSERT, UPDATE, and DELETE
+SELECT * FROM Instructor;
+ins_id	lastname	firstname	city	country
+
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(4, 'Saha', 'Sandip', 'Edmonton', 'CA');
+
+UPDATE Instructor 
+SET city='Toronto' 
+WHERE firstname="Sandip";
+
+UPDATE Instructor 
+SET city='Dubai', country='AE' 
+WHERE ins_id=5;
+
+DELETE FROM instructor
+WHERE ins_id = 6;
+
+--  ----
+
+ALTER TABLE table_name
+ADD COLUMN column_name data_type column_constraint;
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ALTER TABLE table_name
+ALTER COLUMN column_name SET DATA TYPE data_type;
+
+ALTER TABLE table_name
+RENAME COLUMN current_column_name TO new_column_name;
